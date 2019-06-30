@@ -1,0 +1,81 @@
+{
+	"name": "open-html-in-browser",
+	"displayName": "Open HTML in Default Browser",
+	"description": "Open HTML in Default Browser",
+	"version": "1.2.0",
+	"publisher": "peakchen90",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/peakchen90/vscode-open-in-default-browser.git"
+	},
+	"bugs": {
+		"url": "https://github.com/peakchen90/vscode-open-in-default-browser/issues"
+	},
+	"engines": {
+		"vscode": "^1.10.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"open",
+		"html",
+		"default",
+		"browser"
+	],
+	"icon": "icon.jpg",
+	"activationEvents": [
+		"onCommand:peakchen90.openInBrowser"
+	],
+	"main": "./extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "peakchen90.openInBrowser",
+				"title": "%extension.openInBrowser.title%"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"when": "editorLangId == html",
+					"command": "peakchen90.openInBrowser",
+					"group": "1_modification"
+				}
+			],
+			"explorer/context": [
+				{
+					"when": "resourceLangId == html",
+					"command": "peakchen90.openInBrowser",
+					"group": "1_modification"
+				}
+			]
+		},
+		"keybindings": [
+			{
+				"command": "peakchen90.openInBrowser",
+				"key": "ctrl+1",
+				"mac": "cmd+1",
+				"when": "editorTextFocus"
+			}
+		]
+	},
+	"devDependencies": {
+		"@types/mocha": "^2.2.32",
+		"@types/node": "^6.0.40",
+		"eslint": "^3.6.0",
+		"mocha": "^2.3.3",
+		"typescript": "^2.0.3",
+		"vscode": "^1.1.34"
+	},
+	"dependencies": {
+		"axios": "^0.18.0",
+		"getmac": "^1.4.6",
+		"opn": "^4.0.2"
+	},
+	"__metadata": {
+		"id": "e552c70b-32af-4b0b-8f48-5e7e01e688b0",
+		"publisherId": "8d0479cc-c5b2-4c0f-88c2-d38452c8b3df",
+		"publisherDisplayName": "peakchen90"
+	}
+}

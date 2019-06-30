@@ -1,0 +1,116 @@
+{
+	"name": "vue-format",
+	"displayName": "vue-format",
+	"description": "A beautify extension for .vue file",
+	"version": "0.1.6",
+	"publisher": "febean",
+	"engines": {
+		"vscode": "^1.12.0"
+	},
+	"icon": "images/logo.png",
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.vueFormat"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/win7killer/vue-format"
+	},
+	"main": "./extension",
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "vue-format",
+			"properties": {
+				"vue-format.html_indent_root": {
+					"type": "boolean",
+					"default": false,
+					"description": "If indent the root-tag in .vue's template(是否缩进vue组件template中的根节点)"
+				},
+				"vue-format.format_need": {
+					"type": "array",
+					"default": [
+						"html",
+						"js",
+						"css"
+					],
+					"description": "List of format, default [\"html\", \"js\", \"css\"].（需要格式化的语言，默认[\"html\", \"js\", \"css\"]）"
+				},
+				"vue-format.break_attr_limit": {
+					"type": "number",
+					"default": -1,
+					"description": "Break attributes when tag's attributes.length > this number, no break when -1. (tag 的 attrs 大于该数值时，强制 attrs 换行，-1时不换行)"
+				},
+				"vue-format.attr_end_with_gt": {
+					"type": "boolean",
+					"default": true,
+					"description": "If end attrs width '>' when break_attr_limit.（当break_attr_limit时，attrs 后边是否跟随‘>’, 即是否不把标签的括号换行。依赖break_attr_limit > -1 时生效)"
+				},
+				"vue-format.js-beautify": {
+					"type": "object",
+					"default": {
+						"indent_size": "editor.tabSize",
+						"indent_char": " ",
+						"indent_with_tabs": false,
+						"brace-style": "collapse",
+						"space_after_anon_function": true,
+						"css": {},
+						"js": {},
+						"html": {
+							"force_format": [
+								"template"
+							]
+						}
+					},
+					"description": "The config use some js-beautify options, see js-beautify.（使用js-beautify配置项，详情查看js-beautify）"
+				},
+				"vue-format.pug-beautify": {
+					"type": "object",
+					"default": {
+						"fill_tab": false
+					},
+					"description": "The config use some pug-beautify options, see pug-beautify.（使用pug-beautify配置项，详情查看pug-beautify）"
+				}
+			}
+		},
+		"commands": [
+			{
+				"when": "editorLangId == vue",
+				"command": "extension.vueFormat",
+				"title": "Vue-Format"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"when": "editorLangId == vue",
+					"command": "extension.vueFormat",
+					"group": "navigation"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^2.6.1",
+		"vscode": "^1.1.6",
+		"eslint": "^4.11.0",
+		"@types/node": "^7.0.43",
+		"@types/mocha": "^2.2.42"
+	},
+	"dependencies": {
+		"html-parse-stringify": "^1.0.2",
+		"js-beautify": "^1.8.8",
+		"pug-beautify": "^0.1.1"
+	},
+	"__metadata": {
+		"id": "b8c57f22-0657-4a92-b0d0-883c9e8921fb",
+		"publisherId": "28110423-f414-4a20-9455-aebf8470eb24",
+		"publisherDisplayName": "fe_bean"
+	}
+}

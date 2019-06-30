@@ -1,0 +1,60 @@
+{
+	"name": "copy-json-path",
+	"displayName": "copy-json-path",
+	"description": "Copy json path under the cursor",
+	"version": "0.0.5",
+	"publisher": "nidu",
+	"engines": {
+		"vscode": "^1.5.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.copyJsonPath"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/nidu/vscode-copy-json-path.git"
+	},
+	"bugs": {
+		"url": "https://github.com/nidu/vscode-copy-json-path/issues"
+	},
+	"homepage": "https://github.com/nidu/vscode-copy-json-path/blob/master/README.md",
+	"main": "./out/src/extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.copyJsonPath",
+				"title": "Copy Json Path"
+			}
+		]
+	},
+	"keywords": [
+		"JSON"
+	],
+	"scripts": {
+		"vscode:prepublish": "tsc -p ./",
+		"compile": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "tsc -p . && mocha out/test/jsPathTo.test.js"
+	},
+	"devDependencies": {
+		"@types/mocha": "^2.2.32",
+		"@types/node": "^6.0.40",
+		"mocha": "^5.2.0",
+		"mocha-typescript": "^1.0.11",
+		"typescript": "^2.0.3",
+		"vscode": "^1.0.0"
+	},
+	"dependencies": {
+		"@types/copy-paste": "^1.1.30",
+		"acorn": "^5.7.1",
+		"copy-paste": "^1.3.0"
+	},
+	"__metadata": {
+		"id": "fd6cae52-0b2a-4c60-83c7-033e88151341",
+		"publisherId": "a716a75f-4399-4c08-82b7-56c6ebb33264",
+		"publisherDisplayName": "nidu"
+	}
+}
