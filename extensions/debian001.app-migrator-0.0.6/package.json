@@ -100,7 +100,7 @@
 		"escodegen": "^1.8.1",
 		"esprima-harmony": "^7001.1.0-dev-harmony-fb",
 		"opn": "^5.1.0",
-		"pug": "^2.0.0-rc.2"
+		"pug": "^3.0.1"
 	},
 	"__metadata": {
 		"id": "69d0b178-b8f9-4c4f-9b70-d0551df15a6c",
